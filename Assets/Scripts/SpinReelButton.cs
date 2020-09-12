@@ -11,8 +11,10 @@ public class SpinReelButton : MonoBehaviour
     [SerializeField] 
     private Button spinButton;
 
+    [SerializeField] private SlotReelCollectionController slotReelCollectionController;
+
     [SerializeField]
-    private float timeToSpin = 5f;
+    private float timeToSpin = 3f;
 
     [SerializeField] 
     private const string SPINNING_TEXT = "Spinning!";
@@ -23,7 +25,8 @@ public class SpinReelButton : MonoBehaviour
     void onSpinButtonClick()
     {
         // TODO: Call for reel object to spin
-
+        slotReelCollectionController.SpinReels(timeToSpin);
+        
         StartCoroutine(waitForSpin());
     }
 
@@ -58,6 +61,16 @@ public class SpinReelButton : MonoBehaviour
         if (!spinButtonText)
         {
             Debug.LogError(String.Format("Text component not found in children of {0}", gameObject.name));
+        }
+
+        if (!slotReelCollectionController)
+        {
+            slotReelCollectionController = FindObjectOfType<SlotReelCollectionController>();
+        }
+
+        if (!slotReelCollectionController)
+        {
+            Debug.LogError(String.Format("No SlotReelCollectionController assigned to {0} or in scene.", gameObject.name));
         }
 
         spinButtonText.text = READY_TO_SPIN_TEXT;
