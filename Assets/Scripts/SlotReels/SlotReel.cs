@@ -9,11 +9,22 @@ public class SlotReel : MonoBehaviour
     [SerializeField] 
     private SlotReelStripItem[] slotReelStripItems;
 
-    [SerializeField] private SlotReelItemImageController[] slotReelItemImageControllers;
+    [SerializeField] 
+    private SlotReelItemController[] slotReelItemImageControllers;
+
+    public SlotReelItemController[] SlotReelItemControllers
+    {
+        get => slotReelItemImageControllers;
+    }
 
     private int reelIndex;
-    private bool isSpinning = false;
-    
+    private bool isSpinning;
+
+    public bool IsSpinning
+    {
+        get => isSpinning;
+    }
+
     // Times per second the reel will change its index
     private int spinSpeed = 30;
     private float timeSinceLastRotation = 0f;
@@ -27,7 +38,7 @@ public class SlotReel : MonoBehaviour
 
         if (slotReelItemImageControllers == null || slotReelItemImageControllers.Length == 0)
         {
-            slotReelItemImageControllers = GetComponentsInChildren<SlotReelItemImageController>();
+            slotReelItemImageControllers = GetComponentsInChildren<SlotReelItemController>();
         }
 
         if (slotReelItemImageControllers.Length == 0)
@@ -37,7 +48,7 @@ public class SlotReel : MonoBehaviour
 
         reelIndex = Random.Range(0, slotReelStripItems.Length - 1);
 
-        setReelImages(reelIndex);
+        setReelItems(reelIndex);
     }
 
     void Update()
@@ -49,7 +60,7 @@ public class SlotReel : MonoBehaviour
             {
                 timeSinceLastRotation = 0;
                 reelIndex++;
-                setReelImages(reelIndex);
+                setReelItems(reelIndex);
             }
         }
     }
@@ -61,12 +72,12 @@ public class SlotReel : MonoBehaviour
         StartCoroutine(waitForSpin(timeToSpin));
     }
 
-    private void setReelImages(int index)
+    private void setReelItems(int index)
     {
         for (int i = 0; i < slotReelItemImageControllers.Length; i++)
         {
-            Sprite sprite = slotReelStripItems[(index + i) % slotReelStripItems.Length].sprite;
-            slotReelItemImageControllers[i].SetItemImage(sprite);
+            SlotReelStripItem item = slotReelStripItems[(index + i) % slotReelStripItems.Length];
+            slotReelItemImageControllers[i].SetItem(item);
         }
     }
 
@@ -75,9 +86,9 @@ public class SlotReel : MonoBehaviour
         yield return new WaitForSeconds(timeToSpin);
 
         isSpinning = false;
-        
+
         reelIndex = Random.Range(0, slotReelStripItems.Length - 1);
 
-        setReelImages(reelIndex);
+        setReelItems(reelIndex);
     }
 }

@@ -4,10 +4,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlotReelItemImageController : MonoBehaviour
+public class SlotReelItemController : MonoBehaviour
 {
     [SerializeField] 
     private Image itemImage;
+    
+    private SlotReelStripItem item;
+    
+    public SlotReelStripItem SlotReelStripItem
+    {
+        get => item;
+    }
     
     void Start()
     {
@@ -16,9 +23,11 @@ public class SlotReelItemImageController : MonoBehaviour
             Debug.LogError(String.Format("ItemImage Image component not assigned on {0}", gameObject.name));
         }
     }
-    
-    public void SetItemImage(Sprite sprite)
+
+    public void SetItem(SlotReelStripItem item)
     {
-        itemImage.sprite = sprite;
+        this.item = item;
+        
+        itemImage.sprite = item.sprite;
     }
 }
