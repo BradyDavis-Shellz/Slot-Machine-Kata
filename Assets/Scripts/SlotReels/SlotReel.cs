@@ -12,7 +12,12 @@ public class SlotReel : MonoBehaviour
     [SerializeField] private SlotReelItemImageController[] slotReelItemImageControllers;
 
     private int reelIndex;
+    private bool isSpinning = false;
     
+    // Times per second the reel will change its index
+    private int spinSpeed = 30;
+    private float timeSinceLastRotation = 0f;
+
     void Start()
     {
         if (slotReelStripItems == null || slotReelStripItems.Length == 0) 
@@ -35,9 +40,25 @@ public class SlotReel : MonoBehaviour
         setReelImages(reelIndex);
     }
 
+    void Update()
+    {
+        if (isSpinning)
+        {
+            timeSinceLastRotation += Time.deltaTime;
+            if (timeSinceLastRotation >= 1f / spinSpeed )
+            {
+                timeSinceLastRotation = 0;
+                reelIndex++;
+                setReelImages(reelIndex);
+            }
+        }
+    }
+
     public void SpinReel(float timeToSpin)
     {
-        Debug.Log("Spinning reel" + gameObject.name + " for " + timeToSpin + " seconds");
+        isSpinning = true;
+        
+        StartCoroutine(waitForSpin(timeToSpin));
     }
 
     private void setReelImages(int index)
@@ -47,5 +68,16 @@ public class SlotReel : MonoBehaviour
             Sprite sprite = slotReelStripItems[(index + i) % slotReelStripItems.Length].sprite;
             slotReelItemImageControllers[i].SetItemImage(sprite);
         }
+    }
+
+    IEnumerator waitForSpin(float timeToSpin)
+    {
+        yield return new WaitForSeconds(timeToSpin);
+
+        isSpinning = false;
+        
+        reelIndex = Random.Range(0, slotReelStripItems.Length - 1);
+
+        setReelImages(reelIndex);
     }
 }
