@@ -38,6 +38,8 @@ public class SlotReel : MonoBehaviour
     public void SpinReel(float timeToSpin)
     {
         Debug.Log("Spinning reel" + gameObject.name + " for " + timeToSpin + " seconds");
+
+        StartCoroutine(waitForSpin(timeToSpin));
     }
 
     private void setReelImages(int index)
@@ -47,5 +49,14 @@ public class SlotReel : MonoBehaviour
             Sprite sprite = slotReelStripItems[(index + i) % slotReelStripItems.Length].sprite;
             slotReelItemImageControllers[i].SetItemImage(sprite);
         }
+    }
+
+    IEnumerator waitForSpin(float timeToSpin)
+    {
+        yield return new WaitForSeconds(timeToSpin);
+        
+        reelIndex = Random.Range(0, slotReelStripItems.Length - 1);
+
+        setReelImages(reelIndex);
     }
 }
