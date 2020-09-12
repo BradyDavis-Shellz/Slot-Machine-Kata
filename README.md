@@ -1,2 +1,2 @@
-# Vending-Magine-Kata
-Vending Machine Kata
+# Slot-Machine-Kata
+Slot-Machine-Kata
