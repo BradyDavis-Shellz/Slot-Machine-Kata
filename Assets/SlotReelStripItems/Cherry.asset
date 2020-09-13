@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cea0589a800344b6fa418a23c4839062, type: 3}
-  m_Name: Cherries
+  m_Name: Cherry
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 993eaa8ec1b4244eda43d84dea94009b, type: 3}
   lineAward: 3000
+  ItemType: 1

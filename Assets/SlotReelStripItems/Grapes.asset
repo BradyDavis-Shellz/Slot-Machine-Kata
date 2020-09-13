@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: b9bbe07309e824a32a8df1ad7648ab5b, type: 3}
   lineAward: 3500
+  ItemType: 2

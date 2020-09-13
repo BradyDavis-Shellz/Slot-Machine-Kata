@@ -1,10 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class SlotReelStripItem : ScriptableObject
 {
+
     /// <summary>
     /// Sprite that displays on strip
     /// </summary>
