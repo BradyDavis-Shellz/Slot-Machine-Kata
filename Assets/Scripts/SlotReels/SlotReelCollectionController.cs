@@ -10,6 +10,8 @@ public class SlotReelCollectionController : MonoBehaviour
     [SerializeField] 
     private ScoreTextDisplay scoreTextDisplay;
 
+    [SerializeField] private SoundEffectsController sfxController;
+
     private bool isSpinning = false;
 
     void Start()
@@ -32,6 +34,16 @@ public class SlotReelCollectionController : MonoBehaviour
         if (!scoreTextDisplay)
         {
             Debug.LogError(String.Format("No ScoreTextDisplay component assigned or found in scene for {0}", gameObject.name));
+        }
+
+        if (!sfxController)
+        {
+            sfxController = FindObjectOfType<SoundEffectsController>();
+        }
+
+        if (!sfxController)
+        {
+            Debug.LogError(String.Format("No SoundEffectsController component assigned or found in scene for {0}", gameObject.name));
         }
     }
 
@@ -90,6 +102,11 @@ public class SlotReelCollectionController : MonoBehaviour
             {
                 score += item.lineAward;
             }
+        }
+
+        if (score > 0)
+        {
+            sfxController.PlayWinSoundEffect();
         }
 
         return score;
