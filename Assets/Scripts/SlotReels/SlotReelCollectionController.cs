@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Serialization;
 
 public class SlotReelCollectionController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SlotReelCollectionController : MonoBehaviour
     private ScoreTextDisplay scoreTextDisplay;
 
     [SerializeField] private SoundEffectsController sfxController;
+    
+    [SerializeField] private ParticleSystem winParticleSystem;
 
     private bool isSpinning = false;
 
@@ -45,6 +48,11 @@ public class SlotReelCollectionController : MonoBehaviour
         {
             Debug.LogError(String.Format("No SoundEffectsController component assigned or found in scene for {0}", gameObject.name));
         }
+
+        if (!winParticleSystem)
+        {
+            Debug.LogError(String.Format("No particleSystem component assigned for {0}", gameObject.name));
+        }
     }
 
     void Update()
@@ -77,6 +85,7 @@ public class SlotReelCollectionController : MonoBehaviour
         int score = GetScoreForHorizontalPayLines();
 
         scoreTextDisplay.AddPoints(score);
+        
     }
 
     private int GetScoreForHorizontalPayLines()
@@ -107,6 +116,7 @@ public class SlotReelCollectionController : MonoBehaviour
         if (score > 0)
         {
             sfxController.PlayWinSoundEffect();
+            winParticleSystem.Play();
         }
 
         return score;
