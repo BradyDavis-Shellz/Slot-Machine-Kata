@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
-  winSoundEffect: {fileID: 8300000, guid: d2fc79e93be214408b8c150fce5d8826, type: 3}
+  winSoundEffect: {fileID: 8300000, guid: a284a9fd6f5824f928f460163df1512c, type: 3}
   reelStopSoundEffect: {fileID: 8300000, guid: ce44f5886b8417f4d867038263fa3eed, type: 3}
 --- !u!20 &519420031
 Camera:
@@ -2413,7 +2413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 51, y: 20.172974}
+  m_AnchoredPosition: {x: 51, y: 20.172852}
   m_SizeDelta: {x: 399.31152, y: 248.26715}
   m_Pivot: {x: 0, y: 0}
 --- !u!82 &1756681611
