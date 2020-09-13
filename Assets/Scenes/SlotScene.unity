@@ -176,11 +176,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotReelStripItems:
   - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
-  - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
+  - {fileID: 11400000, guid: ddf30a65ccfec4288a01eff41e3d67ff, type: 2}
   - {fileID: 11400000, guid: 4526c0173811f4b81988b86f5522bb91, type: 2}
   - {fileID: 11400000, guid: e47c61d3128fb4ca8ab48857efeac21d, type: 2}
   - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
   - {fileID: 11400000, guid: ddf30a65ccfec4288a01eff41e3d67ff, type: 2}
+  - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
+  - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
   slotReelItemImageControllers:
   - {fileID: 1540375785}
   - {fileID: 126832720}
@@ -6649,6 +6651,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4526c0173811f4b81988b86f5522bb91, type: 2}
   - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
   - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
+  - {fileID: 11400000, guid: ddf30a65ccfec4288a01eff41e3d67ff, type: 2}
+  - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
   slotReelItemImageControllers:
   - {fileID: 1918990060}
   - {fileID: 1598312217}
@@ -7671,7 +7675,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
   - {fileID: 11400000, guid: 4526c0173811f4b81988b86f5522bb91, type: 2}
   - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
+  - {fileID: 11400000, guid: ddf30a65ccfec4288a01eff41e3d67ff, type: 2}
   - {fileID: 11400000, guid: feb2452defe144545bcbca40b805418f, type: 2}
+  - {fileID: 11400000, guid: efd522b85f7a94df08234c8fef3fea73, type: 2}
   slotReelItemImageControllers:
   - {fileID: 2130367044}
   - {fileID: 2015845722}
