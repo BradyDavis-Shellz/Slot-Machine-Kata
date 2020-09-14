@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.Serialization;
 
 public class SlotReelCollectionController : MonoBehaviour
 {
@@ -102,7 +101,6 @@ public class SlotReelCollectionController : MonoBehaviour
         foreach (var reel in slotReels)
         {
             score += reel.SlotReelItemControllers.Select(x => x.SlotReelStripItem.singleAward).Sum();
-            Debug.Log("score " + score);
         }
 
         return score;
