@@ -7,8 +7,6 @@ public class ScoreTextDisplay : MonoBehaviour
 {
     private int score;
 
-    private float timer = 0f;
-
     [SerializeField]
     private Text scoreText;
 
