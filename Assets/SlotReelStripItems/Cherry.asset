@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: 993eaa8ec1b4244eda43d84dea94009b, type: 3}
-  lineAward: 3000
-  ItemType: 1
+  lineAward: 1500
+  singleAward: 500

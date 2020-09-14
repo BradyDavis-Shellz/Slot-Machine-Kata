@@ -13,4 +13,9 @@ public class SlotReelStripItem : ScriptableObject
     /// Award for getting 3 of the same item in a row
     /// </summary>
     public int lineAward;
+
+    /// <summary>
+    /// Award for getting a single of this item
+    /// </summary>
+    public int singleAward;
 }
