@@ -84,8 +84,28 @@ public class SlotReelCollectionController : MonoBehaviour
     {
         int score = GetScoreForHorizontalPayLines();
 
+        score += GetScoreForSingles();
+        
+        if (score > 0)
+        {
+            sfxController.PlayWinSoundEffect();
+            winParticleSystem.Play();
+        }
+
         scoreTextDisplay.AddPoints(score);
         
+    }
+
+    private int GetScoreForSingles()
+    {
+        int score = 0;
+        foreach (var reel in slotReels)
+        {
+            score += reel.SlotReelItemControllers.Select(x => x.SlotReelStripItem.singleAward).Sum();
+            Debug.Log("score " + score);
+        }
+
+        return score;
     }
 
     private int GetScoreForHorizontalPayLines()
@@ -111,12 +131,6 @@ public class SlotReelCollectionController : MonoBehaviour
             {
                 score += item.lineAward;
             }
-        }
-
-        if (score > 0)
-        {
-            sfxController.PlayWinSoundEffect();
-            winParticleSystem.Play();
         }
 
         return score;
